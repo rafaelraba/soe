@@ -1,8 +1,9 @@
 package edu.soe.uds.api
 
-import edu.soe.uds.api.controller.person.PersonPutController
-import edu.soe.uds.person.infrastructure.dependency_injection.PersonModuleDependencyContainer
+import edu.soe.uds.api.controller.student.StudentPutController
+import edu.soe.uds.student.infrastructure.dependency_injection.StudentModuleDependencyContainer
 
-final class EntryPointDependencyContainer(personDependencies: PersonModuleDependencyContainer) {
-  val personController = new PersonPutController()
+final class EntryPointDependencyContainer(studentDependencies: StudentModuleDependencyContainer) {
+  val studentController = new StudentPutController(studentDependencies.studentCreator)
 }
+

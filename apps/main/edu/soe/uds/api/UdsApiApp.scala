@@ -3,6 +3,7 @@ package edu.soe.uds.api
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import com.typesafe.config.ConfigFactory
+import edu.soe.uds.student.infrastructure.dependency_injection.StudentModuleDependencyContainer
 
 import scala.concurrent.ExecutionContextExecutor
 import scala.io.StdIn
@@ -12,7 +13,8 @@ object UdsApiApp {
     val appConfig    = ConfigFactory.load("application")
     val serverConfig = ConfigFactory.load("http-server")
 
-    val routes          = Routes
+    val container = new EntryPointDependencyContainer(new StudentModuleDependencyContainer())
+    val routes          = new Routes(container)
     val actorSystemName = appConfig.getString("main-actor-system.name")
     val host            = serverConfig.getString("http-server.host")
     val port            = serverConfig.getInt("http-server.port")

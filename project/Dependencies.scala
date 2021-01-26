@@ -11,8 +11,11 @@ object Dependencies {
     "com.typesafe.akka"      %% "akka-actor"           % Versions.akka,
     "com.typesafe.akka"      %% "akka-stream"          % Versions.akka, // Explicit dependency due to: https://bit.ly/akka-http-25
     "com.typesafe.akka"      %% "akka-http-spray-json" % Versions.akkaHttp,
+    "org.mongodb.scala"      %% "mongo-scala-driver"   % "2.9.0",
+    "com.lightbend.akka" %% "akka-stream-alpakka-mongodb" % "2.0.1",
     "com.github.nscala-time" %% "nscala-time"          % "2.22.0",
-    "com.lihaoyi"            %% "pprint"               % "0.5.6"
+    "com.lihaoyi"            %% "pprint"               % "0.5.6",
+    "com.lightbend.akka" %% "akka-stream-alpakka-file" % "2.0.2"
   )
 
   val test = Seq(
